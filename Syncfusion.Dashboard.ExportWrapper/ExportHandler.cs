@@ -9,7 +9,7 @@ namespace Syncfusion.Dashboard.ExportWrapper
             using (var p = new System.Diagnostics.Process())
             {
                 Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory + "Temp\\";
-                p.StartInfo.FileName = "phantomjs.exe";
+                p.StartInfo.FileName = AppDomain.CurrentDomain.BaseDirectory + "phantomjs.exe";
                 p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 p.StartInfo.Arguments = token + "js.js  --disk-cache=[true]";
                 p.Start();
