@@ -22,7 +22,11 @@ namespace Syncfusion.Dashboard.ExportWrapper
                 else if (File.Exists(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + "..\\") + "DashboardServer.Web\\API\\" + fileName))
                 {
                     phantomPath = Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + "..\\") + "DashboardServer.Web\\API\\";                    
-                }                     
+                }
+                else if (File.Exists(Path.GetFullPath(Environment.GetEnvironmentVariable("Home").ToString() + @"\site\wwwroot\API\phantomjs.exe")))
+                {
+                    phantomPath = Path.GetFullPath(Environment.GetEnvironmentVariable("Home").ToString() + @"\site\wwwroot\API\");
+                }
                 Environment.CurrentDirectory = phantomPath + "Temp\\";
                 p.StartInfo.FileName = phantomPath + fileName;
                 p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
